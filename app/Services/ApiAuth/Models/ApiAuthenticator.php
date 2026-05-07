@@ -3,7 +3,7 @@
 namespace App\Services\ApiAuth\Models;
 
 use App\Exceptions\ApiResponseException;
-use App\Models\User;
+use App\Services\User\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
 use Carbon\Carbon;

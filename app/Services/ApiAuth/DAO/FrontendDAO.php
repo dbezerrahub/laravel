@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models\DAO;
+namespace App\Services\ApiAuth\DAO;
 
-use App\Models\Frontend;
-use Illuminate\Support\Facades\DB;
+use App\Models\DAO\DAO;
+use App\Services\ApiAuth\Models\Frontend;
 
 class FrontendDAO extends DAO
 {

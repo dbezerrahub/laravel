@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 use Throwable;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Http\Response;
-use App\Models\CustomLog;
+use App\Services\Log\Models\CustomLog;
 
 class Handler
 {

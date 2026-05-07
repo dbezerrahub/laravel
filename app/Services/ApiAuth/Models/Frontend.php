@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace App\Services\ApiAuth\Models;
 
+use App\Services\ApiAuth\DAO\FrontendDAO;
+use App\Services\ApiAuth\Models\EndpointAuthorizator;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\DB;
-use App\Models\DAO\FrontendDAO;
 
 class Frontend extends Authenticatable
 {
@@ -17,7 +17,7 @@ class Frontend extends Authenticatable
     // Relacionamento com FrontendAuthorization
     public function frontendAuthorizations()
     {
-        return $this->hasMany(EndpointAuthorization::class, 'id_frontend');
+        return $this->hasMany(EndpointAuthorizator::class, 'id_frontend');
     }
 
     public static function find_first($where) {

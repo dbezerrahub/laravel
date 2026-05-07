@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Models;
+namespace App\Services\ApiAuth\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class EndpointAuthorization extends Model
+class EndpointAuthorizator extends Model
 {
+
+    protected $table = 'endpoint_authorizations';
+
     /**
      * Relacionamento com frontend (join)
      */

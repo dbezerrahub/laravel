@@ -1,23 +1,22 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Services\ApiResponseService;
-use App\Services\TestService;
+use App\Services\ApiResponse\Models\ApiResponser;
+use App\Services\Test\Models\Tester;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class TestController extends Controller
 {
-    private TestService $test_service;
+    private Tester $test_service;
 
     public function __construct()
     {
-        $this->test_service = new TestService();
+        $this->test_service = new Tester();
     }
 
     public function print_request(Request $request)
     {
-        $request_array = $request->toArray();
-        return ApiResponseService::show($request_array, Response::HTTP_OK);
+        return Tester::print_request($request);
     }
 }

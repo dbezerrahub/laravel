@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\EndpointAuthorization;
+use App\Services\ApiAuth\Models\EndpointAuthorizator;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,7 +18,7 @@ class EndpointAuthorizationMiddleware
     {
         if (!$request->header('Authorization')) {
             $authKey = hash('sha256', $request->header('Endpoint-Authorization-Token'));
-            $endpoint = EndpointAuthorization::where('token', $authKey)
+            $endpoint = EndpointAuthorizator::where('token', $authKey)
             ->where('endpoint', $request->path())
             ->first();
             if(is_null($endpoint)) {

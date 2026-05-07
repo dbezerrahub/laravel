@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\LoginRequest;
 use App\Services\ApiAuth\Models\ApiAuthenticator;
-use App\Services\ApiResponseService;
+use App\Services\ApiResponse\Models\ApiResponser;
 use Illuminate\Http\Response;
 
 class ApiAuthController extends Controller
@@ -19,6 +19,6 @@ class ApiAuthController extends Controller
         $user = $this->apiAuthenticationService->validateUserClientId($request);
         $token = $this->apiAuthenticationService->createLoginToken($user);
         $this->apiAuthenticationService->deleteExpiredTokens();
-        return ApiResponseService::show(["token" => $token], Response::HTTP_OK);
+        return ApiResponser::show(["token" => $token], Response::HTTP_OK);
     }
 }

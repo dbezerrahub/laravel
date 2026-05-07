@@ -2,11 +2,7 @@
 
 use App\Http\Controllers\ApiAuthController;
 use App\Http\Controllers\TestController;
-use App\Services\ApiAuthentication\ApiAuthenticationServiceInterface;
 use Illuminate\Support\Facades\Route;
-use App\Http\Interfaces\FrontAuthenticationInterface;
-
-use App\Http\Interfaces\Frontend\LogInterface;
 
 #### Autenticação pelo Sanctum ####
 Route::middleware('auth:sanctum')->group(function () {

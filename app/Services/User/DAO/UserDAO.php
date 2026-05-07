@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Models\DAO;
+namespace App\Services\User\DAO;
 
-use App\Models\User;
+use App\Models\DAO\DAO;
+use App\Services\User\Models\User;
 use Illuminate\Support\Facades\DB;
 
 class UserDAO extends DAO
