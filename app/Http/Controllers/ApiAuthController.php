@@ -7,18 +7,18 @@ use Illuminate\Http\Response;
 
 class ApiAuthController extends Controller
 {
-    private ApiAuthenticator $apiAuthenticationService;
+    private ApiAuthenticator $apiAuthenticator;
 
     public function __construct()
     {
-        $this->apiAuthenticationService = new ApiAuthenticator();
+        $this->apiAuthenticator = new ApiAuthenticator();
     }
 
     public function login(LoginRequest $request)
     {
-        $user = $this->apiAuthenticationService->validateUserClientId($request);
-        $token = $this->apiAuthenticationService->createLoginToken($user);
-        $this->apiAuthenticationService->deleteExpiredTokens();
+        $user = $this->apiAuthenticator->validateUserCredentials($request);
+        $token = $this->apiAuthenticator->createLoginToken($user);
+        $this->apiAuthenticator->deleteExpiredTokens();
         return ApiResponser::show(["token" => $token], Response::HTTP_OK);
     }
 }

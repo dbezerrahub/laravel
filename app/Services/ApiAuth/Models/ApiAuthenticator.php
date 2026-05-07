@@ -31,7 +31,7 @@ class ApiAuthenticator
      * @throws ApiResponseException
      * @return User
      */
-    function validateUserClientId(FormRequest $request) {
+    function validateUserCredentials(FormRequest $request) {
         $user = User::find_first([['where', 'email', '=', $request->client_id]]);
         $request_client_secret = hash('sha256', $request->client_secret);
         if ($user instanceof User) {

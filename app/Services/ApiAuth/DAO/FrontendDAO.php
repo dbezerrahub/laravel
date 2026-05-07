@@ -2,7 +2,7 @@
 
 namespace App\Services\ApiAuth\DAO;
 
-use App\Models\DAO\DAO;
+use App\Models\DAO;
 use App\Services\ApiAuth\Models\Frontend;
 
 class FrontendDAO extends DAO

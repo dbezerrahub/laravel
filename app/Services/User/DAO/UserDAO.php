@@ -2,7 +2,7 @@
 
 namespace App\Services\User\DAO;
 
-use App\Models\DAO\DAO;
+use App\Models\DAO;
 use App\Services\User\Models\User;
 use Illuminate\Support\Facades\DB;
 
