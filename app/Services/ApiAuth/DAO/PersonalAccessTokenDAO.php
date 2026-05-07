@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models\DAO;
+namespace App\Services\ApiAuth\DAO;
 
 use App\Models\DAO\DAO;
-use App\Models\PersonalAccessToken;
+use App\Services\ApiAuth\Models\PersonalAccessToken;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 

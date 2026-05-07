@@ -4,17 +4,12 @@ namespace App\Services\ApiAuth\Models;
 
 use App\Exceptions\ApiResponseException;
 use App\Models\User;
-use App\Models\PersonalAccessToken;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use App\Helpers\Helper;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\Response;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 
 
-class ApiAuthenticatior
+class ApiAuthenticator
 {
 
     /**

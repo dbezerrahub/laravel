@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace App\Services\ApiAuth\Models;
 
+use App\Services\ApiAuth\DAO\PersonalAccessTokenDAO;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\DAO\PersonalAccessTokenDAO;
 use Carbon\Carbon;
 
 class PersonalAccessToken extends Model
