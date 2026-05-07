@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\ApiAuth\Models;
 
 use App\Exceptions\ApiResponseException;
 use App\Models\User;
@@ -14,7 +14,7 @@ use Illuminate\Http\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 
-class ApiAuthenticationService
+class ApiAuthenticatior
 {
 
     /**

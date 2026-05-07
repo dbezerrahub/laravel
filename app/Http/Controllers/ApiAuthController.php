@@ -1,18 +1,17 @@
 <?php
 namespace App\Http\Controllers;
 use App\Http\Requests\LoginRequest;
+use App\Services\ApiAuth\Models\ApiAuthenticatior;
 use App\Services\ApiResponseService;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-use App\Services\ApiAuthenticationService;
 class ApiAuthController extends Controller
 {
-    private ApiAuthenticationService $apiAuthenticationService;
+    private ApiAuthenticatior $apiAuthenticationService;
 
     public function __construct()
     {
-        $this->apiAuthenticationService = new ApiAuthenticationService();
+        $this->apiAuthenticationService = new ApiAuthenticatior();
     }
 
     public function login(LoginRequest $request)
