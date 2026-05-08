@@ -4,9 +4,11 @@ namespace App\Services\User\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use App\Exceptions\ApiResponseException;
 use App\Services\User\DAO\UserDAO;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -70,5 +72,23 @@ class User extends Authenticatable
         $where = ['where', $attribute, '=', $value];
         $user = self::find_first([$where]);
         return $user;
+    }
+
+    /**
+     * Valida o usuário pelo client_id e o client_secret 
+     * @param FormRequest $request
+     * @throws ApiResponseException
+     * @return mixed (user | null)
+     */
+    static function validateUserCredentials(FormRequest $request) {
+        $user = User::find_first([['where', 'email', '=', $request->client_id]]);
+        $request_client_secret = hash('sha256', $request->client_secret);
+        if ($user instanceof User) {
+            $user_client_secret = $user->client_secret;  
+            if ($request_client_secret == $user_client_secret) {  
+                return $user;
+            }
+        } 
+        return null;
     }
 }

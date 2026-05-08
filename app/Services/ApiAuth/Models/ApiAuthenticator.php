@@ -25,27 +25,7 @@ class ApiAuthenticator
         return $request->toArray();
     }
 
-    /**
-     * Valida o usuário pelo client_id e o client_secret 
-     * @param FormRequest $request
-     * @throws ApiResponseException
-     * @return User
-     */
-    function validateUserCredentials(FormRequest $request) {
-        $user = User::find_first([['where', 'email', '=', $request->client_id]]);
-        $request_client_secret = hash('sha256', $request->client_secret);
-        if ($user instanceof User) {
-            $user_client_secret = $user->client_secret;  
-            #if ($request_client_secret == $user_client_secret) {  
-                return $user;
-            #}
-        } 
-        throw new ApiResponseException(
-            'Usuário não encontrado para o par client_id/client_secret',
-            400
-        );
-    }
-
+    
     /**
      * Cria o token de login para o usuário
      * @param User $user

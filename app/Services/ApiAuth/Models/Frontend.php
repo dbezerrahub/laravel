@@ -12,7 +12,7 @@ class Frontend extends Authenticatable
 {
     use HasApiTokens, Notifiable;
 
-    protected $fillable = ['name', 'client_id', 'client_secret'];
+    protected $fillable = ['name', 'authorized'];
 
     // Relacionamento com FrontendAuthorization
     public function frontendAuthorizations()
